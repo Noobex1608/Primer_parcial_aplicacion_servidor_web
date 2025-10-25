@@ -1,0 +1,158 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateEstadoInput {
+  """Indica si el estado está activo"""
+  activo: Boolean = true
+
+  """Código corto del estado"""
+  codigo: String!
+
+  """Descripción del estado"""
+  descripcion: String
+
+  """Nombre del estado"""
+  nombre: String!
+}
+
+input CreateTipoInput {
+  """Indica si el tipo está activo"""
+  activo: Boolean = true
+
+  """Categoría del tipo"""
+  categoria: String
+
+  """Código corto del tipo"""
+  codigo: String!
+
+  """Descripción del tipo"""
+  descripcion: String
+
+  """Nombre del tipo"""
+  nombre: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type EstadoType {
+  """Indica si el estado está activo"""
+  activo: Boolean!
+
+  """Código corto del estado"""
+  codigo: String!
+
+  """Descripción del estado"""
+  descripcion: String
+
+  """Fecha de creación del estado"""
+  fechaCreacion: DateTime!
+
+  """ID único del estado"""
+  id: Int!
+
+  """Nombre del estado"""
+  nombre: String!
+}
+
+type Mutation {
+  """Crea un nuevo estado"""
+  createEstado(input: CreateEstadoInput!): EstadoType!
+
+  """Crea un nuevo tipo"""
+  createTipo(input: CreateTipoInput!): TipoType!
+
+  """Elimina un estado"""
+  removeEstado(id: Int!): String!
+
+  """Elimina un tipo"""
+  removeTipo(id: Int!): String!
+
+  """Actualiza un estado existente"""
+  updateEstado(id: Int!, input: UpdateEstadoInput!): EstadoType!
+
+  """Actualiza un tipo existente"""
+  updateTipo(id: Int!, input: UpdateTipoInput!): TipoType!
+}
+
+type Query {
+  """
+  Análisis avanzado combinando Estados y Tipos con métricas, comparativas y recomendaciones
+  """
+  analisisCombinado: String!
+
+  """Obtiene un estado por su ID"""
+  estado(id: Int!): EstadoType!
+
+  """Obtiene todos los estados"""
+  estados: [EstadoType!]!
+
+  """Análisis de estados activos vs inactivos con porcentajes"""
+  estadosAnalysis: String!
+
+  """Obtiene un tipo por su ID"""
+  tipo(id: Int!): TipoType!
+
+  """Obtiene todos los tipos"""
+  tipos: [TipoType!]!
+
+  """Análisis de tipos agrupados por categoría"""
+  tiposPorCategoriaAnalysis: String!
+}
+
+type TipoType {
+  """Indica si el tipo está activo"""
+  activo: Boolean!
+
+  """Categoría del tipo"""
+  categoria: String
+
+  """Código corto del tipo"""
+  codigo: String!
+
+  """Descripción del tipo"""
+  descripcion: String
+
+  """Fecha de creación del tipo"""
+  fechaCreacion: DateTime!
+
+  """ID único del tipo"""
+  id: Int!
+
+  """Nombre del tipo"""
+  nombre: String!
+}
+
+input UpdateEstadoInput {
+  """Indica si el estado está activo"""
+  activo: Boolean
+
+  """Código corto del estado"""
+  codigo: String
+
+  """Descripción del estado"""
+  descripcion: String
+
+  """Nombre del estado"""
+  nombre: String
+}
+
+input UpdateTipoInput {
+  """Indica si el tipo está activo"""
+  activo: Boolean
+
+  """Categoría del tipo"""
+  categoria: String
+
+  """Código corto del tipo"""
+  codigo: String
+
+  """Descripción del tipo"""
+  descripcion: String
+
+  """Nombre del tipo"""
+  nombre: String
+}
